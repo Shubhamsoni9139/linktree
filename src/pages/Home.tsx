@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components/Navbar";
 const Home = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
