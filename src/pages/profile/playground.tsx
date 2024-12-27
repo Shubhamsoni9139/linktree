@@ -29,7 +29,13 @@ const Playground = () => {
   const [selectedColor, setSelectedColor] = useState("#FFFFFF");
   const [fontSize, setFontSize] = useState("16");
   const [linkUrl, setLinkUrl] = useState("");
-  const [ogData, setOgData] = useState<any>(null);
+  interface OGData {
+    title: string;
+    description: string;
+    image: string;
+  }
+
+  const [ogData, setOgData] = useState<OGData | null>(null);
   const [isFetchingOG, setIsFetchingOG] = useState(false);
 
   const fonts = [
@@ -112,7 +118,7 @@ const Playground = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-4">
+    <div className="min-h-screen  text-white p-4">
       <div className="mb-6 space-y-4">
         {/* Text Controls */}
         <div className="flex flex-wrap gap-4 items-center bg-gray-800 p-4 rounded">
@@ -183,7 +189,7 @@ const Playground = () => {
         </div>
       </div>
 
-      <div className="relative w-full h-[600px] bg-gray-800 rounded-lg">
+      <div className="relative w-full h-[600px]  rounded-lg">
         {userData?.items.map((item, index) => (
           <Draggable
             key={index}
