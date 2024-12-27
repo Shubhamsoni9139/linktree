@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import About from "./pages/About";
 import AuthPage from "./pages/AuthPage.tsx";
-import Profile from "./pages/profile";
+import Profile from "./pages/profile/profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
