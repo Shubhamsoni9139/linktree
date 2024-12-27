@@ -63,9 +63,9 @@ const Home = () => {
             className="text-lg text-[#A294F9]/80 mb-8"
             variants={itemVariants}
           >
-            Join 50M+ people using Linktree for their link in bio. One link to
-            help you share everything you create, curate and sell from your
-            Instagram, TikTok, Twitter, YouTube and other social media profiles.
+            Simplify your online presence with LinkMe. One link to share
+            everything you create, showcase, and sell—perfect for Instagram,
+            TikTok, Twitter, YouTube, and more!
           </motion.p>
 
           <motion.div
@@ -125,12 +125,12 @@ const Home = () => {
                   />
                 ))}
               </div>
-              <div className="mt-5">
+              <div className="space-y-3 mt-5">
                 {[1].map((i) => (
                   <div
                     key={i}
-                    className="w-full h-12 bg-[#E5D9F2] text-white font-semibold rounded-lg flex items-center justify-center cursor-pointer hover:bg-purple-700"
-                  ></div>
+                    className="w-full h-12 bg-[#E5D9F2] rounded-lg"
+                  />
                 ))}
               </div>
             </div>
