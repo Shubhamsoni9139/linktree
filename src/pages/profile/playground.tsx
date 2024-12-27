@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Draggable from "react-draggable";
@@ -194,7 +194,7 @@ const Playground = () => {
           <Draggable
             key={index}
             position={item.position}
-            onStop={(e, data) => {
+            onStop={(_e, data) => {
               const newItems = [...(userData?.items || [])];
               newItems[index] = { ...item, position: { x: data.x, y: data.y } };
               updateUserData({ items: newItems });
@@ -203,7 +203,7 @@ const Playground = () => {
             <div className="absolute">
               <Resizable
                 size={{ width: item.size.width, height: item.size.height }}
-                onResizeStop={(e, direction, ref, d) => {
+                onResizeStop={(_e, _direction, _ref, d) => {
                   const newItems = [...(userData?.items || [])];
                   newItems[index] = {
                     ...item,
