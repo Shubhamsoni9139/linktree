@@ -14,6 +14,7 @@ import toast from "react-hot-toast";
 import ProfileImage from "./profileimage";
 import { FiEdit2 as Edit2 } from "react-icons/fi";
 import Playground from "./playground";
+
 interface UserProfile {
   username: string;
   email: string;
@@ -102,51 +103,53 @@ const Profile: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f8f5ff] p-8">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8">
-        {/* Left Panel */}
-        <div className="p-4 flex flex-col items-center bg-white shadow-md rounded-lg ">
-          <ProfileImage
-            photoURL={profile?.photoURL}
-            username={profile?.username || ""}
-          />
-          <h2 className="text-xl font-semibold mt-4">
-            {profile?.firstName} {profile?.lastName}
-          </h2>
-          <div className="mt-4">
-            <div className="flex items-center gap-2">
-              {isEditingBio ? (
-                <div className="flex items-center gap-2">
-                  <input
-                    type="text"
-                    value={bio}
-                    onChange={(e) => setBio(e.target.value)}
-                    className="px-3 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b7cff]"
-                    placeholder="Enter your bio"
-                  />
-                  <button
-                    onClick={handleSaveBio}
-                    className="text-[#8b7cff] hover:text-[#7a6be0]"
-                  >
-                    Save
-                  </button>
-                </div>
-              ) : (
-                <>
-                  <p className="text-gray-600">{bio}</p>
-                  <button
-                    onClick={() => setIsEditingBio(true)}
-                    className="text-gray-400 hover:text-gray-600"
-                  >
-                    <Edit2 className="w-4 h-4" />
-                  </button>
-                </>
-              )}
+      <div className="max-w-5xl mx-auto flex flex-col gap-8">
+        {/* Top Panel (Previously Left Panel) */}
+        <div className="w-full  p-8">
+          <div className="flex flex-col items-center">
+            <ProfileImage
+              photoURL={profile?.photoURL}
+              username={profile?.username || ""}
+            />
+            <h2 className="text-xl font-semibold mt-4">
+              {profile?.firstName} {profile?.lastName}
+            </h2>
+            <div className="mt-4">
+              <div className="flex items-center gap-2">
+                {isEditingBio ? (
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={bio}
+                      onChange={(e) => setBio(e.target.value)}
+                      className="px-3 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b7cff]"
+                      placeholder="Enter your bio"
+                    />
+                    <button
+                      onClick={handleSaveBio}
+                      className="text-[#8b7cff] hover:text-[#7a6be0]"
+                    >
+                      Save
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <p className="text-gray-600">{bio}</p>
+                    <button
+                      onClick={() => setIsEditingBio(true)}
+                      className="text-gray-400 hover:text-gray-600"
+                    >
+                      <Edit2 className="w-4 h-4" />
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Right Panel */}
-        <div className="w-full md:w-2/3 bg-white shadow-md rounded-lg p-6">
+        {/* Bottom Panel (Previously Right Panel) */}
+        <div className="">
           <Playground />
         </div>
       </div>
