@@ -9,10 +9,12 @@ export const TextEditor = ({ onAddItem }: TextEditorProps) => {
   const [newText, setNewText] = useState("");
   const [selectedFont, setSelectedFont] = useState("Arial");
   const [selectedColor, setSelectedColor] = useState("#FFFFFF");
-  const [selectedBgColor, setSelectedBgColor] = useState("#4B5563");
+  const [selectedBgColor, setSelectedBgColor] = useState(
+    "rgba(167, 139, 250, 0.1)"
+  );
   const [fontSize, setFontSize] = useState("16");
-  const [gradientStart, setGradientStart] = useState("#4B5563");
-  const [gradientEnd, setGradientEnd] = useState("#1F2937");
+  const [gradientStart, setGradientStart] = useState("#A78BFA");
+  const [gradientEnd, setGradientEnd] = useState("#8B5CF6");
   const [useGradient, setUseGradient] = useState(false);
   const [editingText, setEditingText] = useState(false);
 
@@ -47,14 +49,14 @@ export const TextEditor = ({ onAddItem }: TextEditorProps) => {
   };
 
   return (
-    <div className="p-4 rounded-lg space-y-4 bg-gray-800">
+    <div className="p-6 rounded-2xl space-y-4 bg-white shadow-lg">
       <div className="flex flex-wrap gap-4 items-center">
         <div className="relative flex-grow">
           {editingText ? (
             <textarea
               value={newText}
               onChange={(e) => setNewText(e.target.value)}
-              className="p-2 rounded w-full"
+              className="p-3 rounded-xl w-full border border-purple-200 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none transition-all"
               style={{
                 fontFamily: selectedFont,
                 fontSize: `${fontSize}px`,
@@ -69,7 +71,7 @@ export const TextEditor = ({ onAddItem }: TextEditorProps) => {
           ) : (
             <div
               onClick={() => setEditingText(true)}
-              className="p-2 rounded cursor-text min-h-[40px]"
+              className="p-3 rounded-xl cursor-text min-h-[48px] border border-purple-200"
               style={{
                 fontFamily: selectedFont,
                 fontSize: `${fontSize}px`,
@@ -86,7 +88,7 @@ export const TextEditor = ({ onAddItem }: TextEditorProps) => {
         <select
           value={selectedFont}
           onChange={(e) => setSelectedFont(e.target.value)}
-          className="p-2 rounded bg-gray-700 text-white"
+          className="p-3 rounded-xl bg-white border border-purple-200 text-purple-800 hover:border-purple-400 transition-colors"
         >
           {fonts.map((font) => (
             <option key={font} value={font}>
@@ -96,28 +98,28 @@ export const TextEditor = ({ onAddItem }: TextEditorProps) => {
         </select>
       </div>
 
-      <div className="flex flex-wrap gap-4 items-start">
-        <div className="space-y-1">
-          <label className="block text-sm text-gray-300">Text Color</label>
+      <div className="flex flex-wrap gap-6 items-start">
+        <div className="space-y-2">
+          <label className="block text-sm text-purple-700">Text Color</label>
           <input
             type="color"
             value={selectedColor}
             onChange={(e) => setSelectedColor(e.target.value)}
-            className="p-1 rounded h-8 w-16 bg-gray-700"
+            className="p-1 rounded-lg h-10 w-20 border border-purple-200 bg-white cursor-pointer"
           />
         </div>
 
-        <div className="space-y-1">
-          <div className="flex items-center gap-2">
-            <label className="block text-sm text-gray-300">Background</label>
+        <div className="space-y-2">
+          <div className="flex items-center gap-3">
+            <label className="block text-sm text-purple-700">Background</label>
             <label className="inline-flex items-center">
               <input
                 type="checkbox"
                 checked={useGradient}
                 onChange={(e) => setUseGradient(e.target.checked)}
-                className="form-checkbox h-4 w-4"
+                className="form-checkbox h-4 w-4 text-purple-600 rounded border-purple-300"
               />
-              <span className="ml-2 text-sm text-gray-300">Use Gradient</span>
+              <span className="ml-2 text-sm text-purple-600">Use Gradient</span>
             </label>
           </div>
           {useGradient ? (
@@ -126,14 +128,14 @@ export const TextEditor = ({ onAddItem }: TextEditorProps) => {
                 type="color"
                 value={gradientStart}
                 onChange={(e) => setGradientStart(e.target.value)}
-                className="p-1 rounded h-8 w-16 bg-gray-700"
+                className="p-1 rounded-lg h-10 w-20 border border-purple-200 bg-white cursor-pointer"
                 title="Gradient Start Color"
               />
               <input
                 type="color"
                 value={gradientEnd}
                 onChange={(e) => setGradientEnd(e.target.value)}
-                className="p-1 rounded h-8 w-16 bg-gray-700"
+                className="p-1 rounded-lg h-10 w-20 border border-purple-200 bg-white cursor-pointer"
                 title="Gradient End Color"
               />
             </div>
@@ -142,19 +144,19 @@ export const TextEditor = ({ onAddItem }: TextEditorProps) => {
               type="color"
               value={selectedBgColor}
               onChange={(e) => setSelectedBgColor(e.target.value)}
-              className="p-1 rounded h-8 w-16 bg-gray-700"
+              className="p-1 rounded-lg h-10 w-20 border border-purple-200 bg-white cursor-pointer"
             />
           )}
         </div>
 
-        <div className="space-y-1">
-          <label className="block text-sm text-gray-300">Font Size</label>
-          <div className="flex items-center gap-2">
+        <div className="space-y-2">
+          <label className="block text-sm text-purple-700">Font Size</label>
+          <div className="flex items-center gap-3">
             <input
               type="range"
               value={fontSize}
               onChange={(e) => setFontSize(e.target.value)}
-              className="w-32"
+              className="w-32 accent-purple-600"
               min="8"
               max="72"
             />
@@ -162,7 +164,7 @@ export const TextEditor = ({ onAddItem }: TextEditorProps) => {
               type="number"
               value={fontSize}
               onChange={(e) => setFontSize(e.target.value)}
-              className="p-2 rounded w-20 bg-gray-700 text-white"
+              className="p-2 rounded-xl w-20 border border-purple-200 text-purple-800"
               min="8"
               max="72"
             />
@@ -171,7 +173,7 @@ export const TextEditor = ({ onAddItem }: TextEditorProps) => {
 
         <button
           onClick={handleAddText}
-          className="bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors mt-auto ml-auto"
+          className="bg-purple-600 px-8 py-3 rounded-xl text-white hover:bg-purple-700 transition-colors mt-auto ml-auto"
         >
           Add Text
         </button>

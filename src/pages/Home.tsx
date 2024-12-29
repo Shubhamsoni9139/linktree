@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Navbar } from "../components/Navbar";
+
 const Home = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,23 +45,23 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-[#F5EFFF] to-[#E5D9F2] overflow-hidden">
+    <div className="min-h-screen w-full bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-900 overflow-hidden text-white">
       <Navbar />
       <motion.div
-        className="flex items-center justify-between max-w-6xl mx-auto px-4 mt-20"
+        className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto px-4 mt-10 lg:mt-20 gap-12"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.div className="max-w-xl" variants={itemVariants}>
           <motion.h1
-            className="text-6xl font-bold mb-6 text-[#A294F9]"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-purple-400"
             variants={itemVariants}
           >
             Everything you are. In one, simple link in bio.
           </motion.h1>
           <motion.p
-            className="text-lg text-[#A294F9]/80 mb-8"
+            className="text-base sm:text-lg text-purple-300/80 mb-8"
             variants={itemVariants}
           >
             Simplify your online presence with LinkMe. One link to share
@@ -69,68 +70,59 @@ const Home = () => {
           </motion.p>
 
           <motion.div
-            className="flex gap-4 items-center"
+            className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center"
             variants={itemVariants}
           >
             <div className="relative flex-1 max-w-sm">
               <input
                 type="text"
                 placeholder="yourname"
-                className="w-full px-4 py-3 rounded-full bg-white/50 border border-[#CDC1FF] focus:outline-none focus:border-[#A294F9] pr-32"
+                className="w-full px-4 py-3 rounded-full bg-zinc-800/50 border border-purple-500/20 focus:outline-none focus:border-purple-500 pr-32 text-white placeholder:text-zinc-500"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#A294F9]/50">
-                linktree/
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-600">
+                linkme/
               </span>
             </div>
-            <button className="px-6 py-3 bg-[#CDC1FF] text-white rounded-full hover:bg-[#A294F9] transition-colors flex items-center gap-2">
-              Claim your Linktree
-              <ArrowRight size={16} />
+            <button className="px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
+              Claim your LinkMe
+              <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
         </motion.div>
 
         <motion.div
-          className="relative w-80"
+          className="relative w-72 sm:w-80 lg:w-[400px] shrink-0"
           variants={phoneVariants}
           initial="hidden"
           animate={["visible", "float"]}
         >
-          <div className="bg-white rounded-3xl shadow-xl p-4 transform rotate-6">
-            <div className="bg-[#F5EFFF] rounded-2xl p-4 aspect-[9/19]">
-              <div className="w-16 h-16 rounded-full bg-[#CDC1FF] mx-auto mb-4" />
-              <div className="w-32 h-4 bg-[#E5D9F2] rounded-full mx-auto mb-4" />
+          <div className="bg-zinc-800 rounded-3xl shadow-xl shadow-purple-500/10 p-4 transform rotate-6">
+            <div className="bg-zinc-900 rounded-2xl p-4 aspect-[9/19]">
+              <div className="w-16 h-16 rounded-full bg-purple-600/50 mx-auto mb-4" />
+              <div className="w-32 h-4 bg-zinc-800 rounded-full mx-auto mb-4" />
               <div className="space-y-3">
                 {[1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="w-full h-12 bg-[#E5D9F2] rounded-lg"
-                  />
+                  <div key={i} className="w-full h-12 bg-zinc-800 rounded-lg" />
                 ))}
               </div>
               <div className="flex space-x-3 mt-5">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-12 h-12 bg-[#E5D9F2] rounded-lg" />
+                  <div key={i} className="w-12 h-12 bg-zinc-800 rounded-lg" />
                 ))}
               </div>
               <div className="flex space-x-3 mt-5">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-12 h-12 bg-[#E5D9F2] rounded-lg" />
+                  <div key={i} className="w-12 h-12 bg-zinc-800 rounded-lg" />
                 ))}
               </div>
               <div className="space-y-3 mt-5">
                 {[1].map((i) => (
-                  <div
-                    key={i}
-                    className="w-full h-12 bg-[#E5D9F2] rounded-lg"
-                  />
+                  <div key={i} className="w-full h-12 bg-zinc-800 rounded-lg" />
                 ))}
               </div>
               <div className="space-y-3 mt-5">
                 {[1].map((i) => (
-                  <div
-                    key={i}
-                    className="w-full h-12 bg-[#E5D9F2] rounded-lg"
-                  />
+                  <div key={i} className="w-full h-12 bg-zinc-800 rounded-lg" />
                 ))}
               </div>
             </div>
